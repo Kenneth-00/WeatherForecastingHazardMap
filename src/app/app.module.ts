@@ -9,6 +9,11 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatLabel} from '@angular/material/form-field';
+import { MatError } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { SignupComponent } from './components/signup/signup.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatLabel,
+    MatError
 
   ],
   providers: [],
