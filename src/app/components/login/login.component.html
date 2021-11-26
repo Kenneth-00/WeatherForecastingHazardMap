@@ -3,20 +3,29 @@
     <div class="front">
         <div class="container">
             <section class="login-box">
-                <h2>Login</h2>
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
-                <!-- <button type="submit" name="submit">Login</button> -->
+                <form [formGroup]="login">
+                    <h2>Login</h2>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        kkkk
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <div class="redirects">
+                        <button type="submit" name="submit">
+                            <a routerLink="home" (click)="newClass('Home')" routerLinkActive="active">Login</a>
+                        </button>
+                        <p>Sign up for free!</p>
+                        <a routerLink="signup" (click)="newClass('Signup')" routerLinkActive="active">Sign up</a>
+                    </div>
+                </form>
             </section>
         </div>
     </div>

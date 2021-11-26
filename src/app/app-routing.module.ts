@@ -7,28 +7,20 @@ import { SignupComponent } from './components/signup/signup.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
-  {
-    path: 'weathermap', component: LoginComponent,
+  {path: "**", redirectTo: 'weathermap', pathMatch: 'full'},
+  {path: 'weathermap', component: LoginComponent,
     children: [
-      {
-        path: 'signup', component: SignupComponent
-      },
-      {
-        path: 'home', component: HomeComponent
-      },
-      {
-        path: 'weather', component: WeatherComponent
-      },
-      {
-        path: 'hazardmap', component: HazardmapComponent
-      }
-    ]
+      {path: 'signup', component: SignupComponent},
+      {path: 'home', component: HomeComponent},
+      {path: 'weather', component: WeatherComponent},
+      {path: 'hazardmap', component: HazardmapComponent},
+    ],
   },
-  {path: '', redirectTo: 'weathermap', pathMatch: 'full'}
+  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RouterModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
