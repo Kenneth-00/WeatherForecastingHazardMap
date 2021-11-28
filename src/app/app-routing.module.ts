@@ -10,7 +10,6 @@ const routes: Routes = [
   {path: "**", redirectTo: 'weathermap', pathMatch: 'full'},
   {path: 'weathermap', component: LoginComponent,
     children: [
-      {path: 'signup', component: SignupComponent},
       {path: 'home', component: HomeComponent},
       {path: 'weather', component: WeatherComponent},
       {path: 'hazardmap', component: HazardmapComponent},

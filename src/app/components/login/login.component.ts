@@ -8,25 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: any;
+  password: any;
 
   login: FormGroup = new FormGroup({ 
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.min(3)])
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
   })
   
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  get emailInput() { return this.login.get('email'); }
+  hide = true;
+  get usernameInput() { return this.login.get('username'); }
   get passwordInput() { return this.login.get('password'); }
 
-  hide = true;
+
   Currentnav: string = '';
   constructor(private routes: Router) { }
 
@@ -35,7 +28,7 @@ export class LoginComponent implements OnInit {
   newClass(current:string){
 
     this.Currentnav = current;
-    this.routes.navigateByUrl('/home')
+    this.routes.navigateByUrl('/home');
   }
 
 }

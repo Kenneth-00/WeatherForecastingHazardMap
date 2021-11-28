@@ -5,24 +5,18 @@
             <section class="login-box">
                 <form [formGroup]="login">
                     <h2>Login</h2>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Enter your email</mat-label>
-                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    <mat-form-field>
+                        <input placeholder="Username" matInput formControlName="username" required>
                     </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        kkkk
-                        <mat-label>Enter your password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Password" [type]="hide ? 'text' : 'password'" formControlName="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-form-field>
                     <div class="redirects">
-                        <button type="submit" name="submit">
+                        <button type="submit" name="submit" class="btn">
                             <a routerLink="home" (click)="newClass('Home')" routerLinkActive="active">Login</a>
                         </button>
-                        <p>Sign up for free!</p>
                         <a routerLink="signup" (click)="newClass('Signup')" routerLinkActive="active">Sign up</a>
                     </div>
                 </form>
