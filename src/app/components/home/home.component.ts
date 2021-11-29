@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  [x: string]: any;
 
-  constructor() { }
+  Currentnav: string = '';
+  constructor(private routes: Router) { }
 
   ngOnInit(): void {
+  }
+  newClass(current:string){
+
+    this.Currentnav = current;
+    this.routes.navigateByUrl('/weather');
   }
 
 }

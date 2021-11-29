@@ -1,1 +1,8 @@
-<p>home works!</p>
+<mat-toolbar color=primary>
+    {{Currentnav}}
+    <a routerLink="weather" (click)="newClass('Weather')" routerLinkActive="active">Weather</a>
+    <a routerLink="hazardmap" (click)="newClass('Hazard Map')" routerLinkActive="active">Hazard Map</a>
+</mat-toolbar>
+<div>
+    <router-outlet></router-outlet>
+</div>
