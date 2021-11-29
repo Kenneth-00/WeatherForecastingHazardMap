@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  password: any;
+  [x: string]: any;
 
   login: FormGroup = new FormGroup({ 
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
   
-  hide = true;
+  hide = false;
   get usernameInput() { return this.login.get('username'); }
   get passwordInput() { return this.login.get('password'); }
 

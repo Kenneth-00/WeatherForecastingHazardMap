@@ -1,20 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HazardmapComponent } from './components/hazardmap/hazardmap.component';
-import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
-  {path: "**", redirectTo: 'weathermap', pathMatch: 'full'},
-  {path: 'weathermap', component: LoginComponent,
-    children: [
-      {path: 'home', component: HomeComponent},
-      {path: 'weather', component: WeatherComponent},
-      {path: 'hazardmap', component: HazardmapComponent},
-    ],
-  },
+  
+  {path: 'weathermap', component: LoginComponent},
+  {path: 'home', loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)},
+  {path: 'signup', loadChildren: () => import('./components/signup/signup.module').then(m => m.SignupModule)},
+  {path: "**", redirectTo: 'weathermap', pathMatch: 'full'}
   
 ];
 
